@@ -75,7 +75,7 @@ for row in train_bank.rows:
     train_data.append(list())
     for cell in row:
         train_data[-1].append(cell.value)
-        
+
 for row in test_bank.rows:
     test_data.append(list())
     for cell in row:
@@ -125,7 +125,7 @@ for word in word_dict:
     total_score = word_dict[word][0]
     total_instance = word_dict[word][1]
     word_dict[word] = total_score / (total_instance+1)
-    
+
 #add "bayesian" scores to train_data
 bay_train = list()
 bay_test = list()
@@ -218,7 +218,7 @@ datafile_test.close()
 
 ann = MLPRegressor(activation='tanh',solver='sgd',alpha=0.0001,
 	hidden_layer_sizes=(100,100,40), random_state=1)
-	
+
 ann.fit(train_data, scores_train)
 
 results = ann.predict(test_data)
@@ -227,12 +227,16 @@ error_total = list()
 
 for i in range(len(results)):
 	 error_total.append(abs(results[i] - scores_test[i]))
-	 
+
+#output scores to result.csv
+results_file = open("result.csv", "w")
+for i in range(len(scores_test)):
+	s = ""
+	#words = lines[i].rsplit('	')
+	#s += words[0] + '	'
+	s += str(results[i])
+	s += "\n"
+	results_file.write(s)
+results_file.close()
+
 print(sum(error_total) / len(error_total))
-	
-
-
-
-
-
-
