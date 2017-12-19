@@ -75,7 +75,7 @@ for row in train_bank.rows:
     train_data.append(list())
     for cell in row:
         train_data[-1].append(cell.value)
-        
+
 for row in test_bank.rows:
     test_data.append(list())
     for cell in row:
@@ -125,7 +125,7 @@ for word in word_dict:
     total_score = word_dict[word][0]
     total_instance = word_dict[word][1]
     word_dict[word] = total_score / (total_instance+1)
-    
+
 #add "bayesian" scores to train_data
 
 for i in range(len(lines)):
@@ -210,10 +210,3 @@ for i in range(len(test_data)):
 	datafile_test.write(s)
 
 datafile_test.close()
-
-
-
-
-
-
-

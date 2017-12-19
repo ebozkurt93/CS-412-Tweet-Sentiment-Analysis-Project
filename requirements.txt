@@ -1,1 +1,5 @@
 openpyxl
+scikit-learn
+scipy
+numpy
+# scipy may not be needed, but is a dependency of scikit-learn

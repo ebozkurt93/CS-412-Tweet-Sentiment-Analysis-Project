@@ -228,8 +228,8 @@ error_total = list()
 for i in range(len(results)):
 	 error_total.append(abs(results[i] - scores_test[i]))
 
-#output scores to result.csv
-results_file = open("result.csv", "w")
+#output scores to resultNN.csv
+results_file = open("resultNN.csv", "w")
 for i in range(len(scores_test)):
 	s = ""
 	#words = lines[i].rsplit('	')
